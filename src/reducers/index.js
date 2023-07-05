@@ -1,11 +1,18 @@
 //reducers
 
-const countReducer = (state, action) => {
+import { combineReducers } from "redux";
+
+const countReducer = (state = 1, action) => {
 
     switch (action.type) {
         case "INCREMENT": return state + 1;
-        case "DECREMANT": return state - 1;
-        default: return state;  
+        case "DECREMENT": return state - 1;
+        default: return state;
     }
 
 }
+const reducers = combineReducers({
+count : countReducer //it will save the porperty
+})
+
+export default reducers;
